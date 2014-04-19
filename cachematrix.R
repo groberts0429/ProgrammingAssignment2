@@ -2,6 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
+## Function makeCacheMatrix returns a matrix-like object which can cache its own inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
 
