@@ -17,6 +17,11 @@ makeCacheMatrix <- function(x = matrix()) {
   } else {
     inverseMatrix <- cacheSolve(x)
   }
+  setinverse <- function(cacheMatrix) cacheSolve(cacheMatrix) #"setter"
+  getInverse <- function(cacheMatrix) cacheMatrix #"getter"
+  list(set = set, get = get, # create storage for resulting S3 objects
+  setInverse = setInverse,
+  getInverse = getInverse)
   return(cacheMatrix)
 }
 
@@ -28,8 +33,6 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
 ## Return a matrix that is the inverse of 'x'
-  
-  
         inverseMatrix <- solve(x) #solve returns the inverse of a matrix when given an invertible matrix as input (we assume that the input is an invertible matrix in this assignment)
         return(inverseMatrix)
 }
